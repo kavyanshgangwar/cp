@@ -10,6 +10,9 @@ int main(){
       adj[i][j]=INF;
     }
   }
+  for(int i=0;i<n;i++){
+    adj[i][i]=0;
+  }
   int m;
   cin>>m;
   int a,b,w;
@@ -20,6 +23,7 @@ int main(){
   for(int k=0;k<n;k++){
     for(int i=0;i<n;i++){
       for(int j=0;j<n;j++){
+        if(adj[i][k]!=INF && adj[k][j]!=INF)
         adj[i][j]=min(adj[i][k]+adj[k][j],adj[i][j]);
       }
     }
